@@ -9,10 +9,19 @@ namespace COMP2614Lab06
     class GroceryItemCollection : List<GroceryItem>
     {
         private decimal totalPrice;
-        private decimal TotalPrice
+        public int TotalLength
         {
-            get { return totalPrice; }
-            set { totalPrice = value; }
+            get
+            {
+                int total = 0;
+
+                foreach (GroceryItem song in this)
+                {
+                    total += song.Length;
+                }
+
+                return total;
+            }
         }
     }
 }

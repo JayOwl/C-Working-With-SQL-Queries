@@ -8,25 +8,25 @@ namespace COMP2614Lab06
 {
     class ConsolePrinter
     {
-        public static void PrintGroceryCollection(GroceryItemCollection groceries, string header)
+        public static void PrintSongCollection(GroceryItemCollection songs)
         {
-            foreach (GroceryItem grocery in groceries)
+            string divider = new string('-', 70);
+            Console.WriteLine($"{"Artist",-30} {"Title",-30} {"Length"}\n{divider}");
+
+            foreach (GroceryItem song in songs)
             {
-                DateTime dateTimeExpiry = grocery.ExpriationDate;
-                string stringDateTime;
-                stringDateTime = Convert.ToString(dateTimeExpiry);
-
-                if (grocery.ExpriationDate == DateTime.MinValue)
-                {
-                    stringDateTime = "<Never>";
-                }
-                else
-                {
-                    stringDateTime = dateTimeExpiry.ToString("ddd") + " " + dateTimeExpiry.ToString("MMM dd, yyyy");
-                }
-
-                Console.WriteLine($"{grocery.Description,-20} {grocery.Price,20:N2}   {stringDateTime,-15}");
+                PrintSong(song);
             }
+
+            TimeSpan length = new TimeSpan(0, 0, songs.TotalLength);
+            Console.WriteLine(divider);
+            Console.WriteLine($"{"Total:",-30} {string.Empty,-30} {length.Hours:D2}:{length.Minutes:D2}:{length.Seconds:D2}\n\n");
+        }
+
+        public static void PrintSong(GroceryItem song)
+        {
+            TimeSpan length = new TimeSpan(0, 0, song.Length);
+            Console.WriteLine($"{song.Artist,-30} {song.Title,-30} {length.Hours:D2}:{length.Minutes:D2}:{length.Seconds:D2}");
         }
     }
 }

@@ -6,21 +6,24 @@ using System.Threading.Tasks;
 
 namespace COMP2614Lab06
 {
-    class GroceryItem : IComparable<GroceryItem>
+    class GroceryItem
     {
-        public string Description { get; set; }
+        public int SongId { get; set; }
+        public string Artist { get; }
+        public string Title { get; }
+        public int Length { get; }
 
-        public decimal Price { get; set; }
-
-        public DateTime ExpriationDate { get; set; }
-
-        public int CompareTo(GroceryItem groceryArgument)
+        public GroceryItem(int songId, string artist, string title, int length)
         {
-            if (groceryArgument == null)
-            {
-                return 1;
-            }
-            return -this.Price.CompareTo(groceryArgument.Price);
+            SongId = songId;
+            Artist = artist;
+            Title = title;
+            Length = length;
+        }
+
+        public override string ToString()
+        {
+            return string.Format($"{Title} by {Artist} Length: {Length}");
         }
     }
 }

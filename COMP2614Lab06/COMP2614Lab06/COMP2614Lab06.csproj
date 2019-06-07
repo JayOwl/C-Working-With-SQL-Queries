@@ -46,6 +46,7 @@
     <Compile Include="ConsolePrinter.cs" />
     <Compile Include="GroceryItem.cs" />
     <Compile Include="GroceryItemCollection.cs" />
+    <Compile Include="GroceryItemRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
