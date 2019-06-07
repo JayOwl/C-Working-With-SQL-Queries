@@ -11,7 +11,7 @@ namespace COMP2614Lab06
         public static void PrintSongCollection(GroceryItemCollection songs)
         {
             string divider = new string('-', 70);
-            Console.WriteLine($"{"Artist",-30} {"Title",-30} {"Length"}\n{divider}");
+            Console.WriteLine($"{"Description",-30} {"Price",-30} {"ExpirationDate"}\n{divider}");
 
             foreach (GroceryItem song in songs)
             {
@@ -25,8 +25,8 @@ namespace COMP2614Lab06
 
         public static void PrintSong(GroceryItem song)
         {
-            TimeSpan length = new TimeSpan(0, 0, song.Length);
-            Console.WriteLine($"{song.Artist,-30} {song.Title,-30} {length.Hours:D2}:{length.Minutes:D2}:{length.Seconds:D2}");
+            //TimeSpan length = new TimeSpan(0, 0, song.Length);
+            Console.WriteLine($"{song.Artist,-30} {song.Title,-30} {song.ExpirationDate}");
         }
     }
 }

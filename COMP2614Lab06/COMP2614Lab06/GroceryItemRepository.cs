@@ -25,9 +25,9 @@ namespace COMP2614Lab06
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 // embedded SQL
-                string query = @"SELECT SongId, Artist, Title, Length
-                                 FROM Song
-                                 ORDER BY Artist, Title";
+                string query = @"SELECT GroceryItemId, Description, Price, ExpirationDate
+                                 FROM GroceryItem
+                                 ORDER BY Price, Description";
 
                 using (SqlCommand cmd = new SqlCommand())
                 {
@@ -41,31 +41,38 @@ namespace COMP2614Lab06
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        int songId;
-                        string artist = null;
-                        string title;
-                        int length = 0;
+                        int groceryItemId;
+                        string description = null;
+                        decimal price = 0;                        
+                        DateTime expirationDate = DateTime.MinValue;
 
                         while (reader.Read())
                         {
-                            songId = (int)reader["SongId"];
+                            groceryItemId = (int)reader["GroceryItemId"];
 
                             if (!reader.IsDBNull(1))
                             {
-                                artist = reader["Artist"] as string;
+                                description = reader["Description"] as string;
                             }
 
-                            title = reader["Title"] as string;
+                            if (!reader.IsDBNull(2))
+                            {
+                                price = (decimal)reader["Price"];
+                            }
 
                             if (!reader.IsDBNull(3))
                             {
-                                length = (int)reader["Length"];
-                            }
+                                //expirationDate = (DateTime)reader["ExpirationDate"];
+                                expirationDate = (DateTime)reader["ExpirationDate"];
+                            }                       
 
-                            songs.Add(new GroceryItem(songId, artist, title, length));
 
-                            artist = null;
-                            length = 0;
+                            songs.Add(new GroceryItem(groceryItemId, description, price, expirationDate));
+
+                            description = null;
+                            price = 0;
+                            //expirationDate = DateTime.MinValue;
+                         
                         }
                     }
 

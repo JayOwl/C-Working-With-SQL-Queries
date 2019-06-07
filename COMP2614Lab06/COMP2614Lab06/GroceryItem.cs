@@ -10,20 +10,20 @@ namespace COMP2614Lab06
     {
         public int SongId { get; set; }
         public string Artist { get; }
-        public string Title { get; }
-        public int Length { get; }
+        public decimal Title { get; }
+        public DateTime ExpirationDate { get; }
 
-        public GroceryItem(int songId, string artist, string title, int length)
+        public GroceryItem(int songId, string artist, decimal title, DateTime expirationDate)
         {
             SongId = songId;
             Artist = artist;
             Title = title;
-            Length = length;
+            ExpirationDate = expirationDate;
         }
 
         public override string ToString()
         {
-            return string.Format($"{Title} by {Artist} Length: {Length}");
+            return string.Format($"{Title} by {Artist} Expiration Date: {ExpirationDate}");
         }
     }
 }
