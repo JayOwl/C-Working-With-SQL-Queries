@@ -19,7 +19,7 @@ namespace COMP2614Lab06
                                                       Connection Timeout=30;";
 
 
-        public static GroceryItemCollection GetAllSongs()
+        public static GroceryItemCollection GetAllGroceries()
         {
             GroceryItemCollection groceries;
 
@@ -28,7 +28,7 @@ namespace COMP2614Lab06
                 // embedded SQL
                 string query = @"SELECT GroceryItemId, Description, Price, ExpirationDate
                                  FROM GroceryItem
-                                 ORDER BY Price, Description";
+                                 ORDER BY ExpirationDate";
 
                 using (SqlCommand cmd = new SqlCommand())
                 {
@@ -67,12 +67,10 @@ namespace COMP2614Lab06
                                 expirationDate = (DateTime)reader["ExpirationDate"];
                             }
 
-
                             groceries.Add(new GroceryItem(groceryItemId, description, price, expirationDate));
 
                             description = null;
-                            price = 0;
-                            //expirationDate = DateTime.MinValue;
+                            price = 0;                           
 
                         }
                     }

@@ -21,9 +21,6 @@ namespace COMP2614Lab06
             ExpirationDate = expirationDate;
         }
 
-        public override string ToString()
-        {
-            return string.Format($"{Price} by {Description} Expiration Date: {ExpirationDate}");
-        }
+       
     }
 }

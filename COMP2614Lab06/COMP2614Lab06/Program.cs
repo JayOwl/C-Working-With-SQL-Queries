@@ -16,8 +16,8 @@ namespace COMP2614Lab06
 
             try
             {
-                GroceryItemCollection songs = GroceryItemRepository.GetAllSongs();
-                ConsolePrinter.PrintSongCollection(songs);
+                GroceryItemCollection groceries = GroceryItemRepository.GetAllGroceries();
+                ConsolePrinter.PrintGroceryCollection(groceries);    
                 Console.ReadLine();
             }
 

@@ -8,21 +8,50 @@ namespace COMP2614Lab06
 {
     class ConsolePrinter
     {
-        public static void PrintSongCollection(GroceryItemCollection groceries)
+       
+        public static void PrintGroceryCollection(GroceryItemCollection groceries)
         {
             string divider = new string('-', 70);
+            Console.WriteLine("Natural Order:");
             Console.WriteLine($"{"Description",-30} {"Price",-30} {"ExpirationDate"}\n{divider}");
+         
+            decimal totalPrice = 0;
 
-            foreach (GroceryItem song in groceries)
+            foreach (GroceryItem groceryItem in groceries)
             {
-                PrintSong(song);
-            }         
+                PrintGroceries(groceryItem);
+               
+                totalPrice += groceryItem.Price;
+            }
+        
+            Console.WriteLine(divider);
+            Console.WriteLine($"{"Total: ",-30} {totalPrice,-30} ");
+
         }
 
-        public static void PrintSong(GroceryItem song)
+        public static void PrintGroceries(GroceryItem groceryItem)
         {
-            //TimeSpan length = new TimeSpan(0, 0, song.Length);
-            Console.WriteLine($"{song.Description,-30} {song.Price,-30} {song.ExpirationDate}");
+            string divider = new string('-', 70);
+            DateTime dateTimeExpiry = groceryItem.ExpirationDate;
+            string stringDateTime;
+            if (groceryItem.ExpirationDate == DateTime.MinValue)
+            {
+                stringDateTime = "<Never>";
+            }
+            else
+            {
+                stringDateTime = dateTimeExpiry.ToString("ddd") + " " + dateTimeExpiry.ToString("MMM dd, yyyy");
+            }
+
+
+            Console.WriteLine($"{groceryItem.Description,-30} {groceryItem.Price,-30} {stringDateTime}");
+
+          
+
+
+            
+
+          
         }
     }
 }
