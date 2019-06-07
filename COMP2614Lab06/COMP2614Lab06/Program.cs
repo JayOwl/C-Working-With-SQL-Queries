@@ -12,7 +12,7 @@ namespace COMP2614Lab06
     {
         static void Main(string[] args)
         {
-            Console.Title = "ADO.NET Example";
+            Console.Title = "COMP2614Lab03";
 
             try
             {

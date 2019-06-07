@@ -8,22 +8,22 @@ namespace COMP2614Lab06
 {
     class GroceryItem
     {
-        public int SongId { get; set; }
-        public string Artist { get; }
-        public decimal Title { get; }
+        public int GroceryItemId { get; set; }
+        public string Description { get; }
+        public decimal Price { get; }
         public DateTime ExpirationDate { get; }
 
-        public GroceryItem(int songId, string artist, decimal title, DateTime expirationDate)
+        public GroceryItem(int groceryItemId, string description, decimal price, DateTime expirationDate)
         {
-            SongId = songId;
-            Artist = artist;
-            Title = title;
+            GroceryItemId = groceryItemId;
+            Description = description;
+            Price = price;
             ExpirationDate = expirationDate;
         }
 
         public override string ToString()
         {
-            return string.Format($"{Title} by {Artist} Expiration Date: {ExpirationDate}");
+            return string.Format($"{Price} by {Description} Expiration Date: {ExpirationDate}");
         }
     }
 }

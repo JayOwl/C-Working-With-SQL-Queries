@@ -8,25 +8,21 @@ namespace COMP2614Lab06
 {
     class ConsolePrinter
     {
-        public static void PrintSongCollection(GroceryItemCollection songs)
+        public static void PrintSongCollection(GroceryItemCollection groceries)
         {
             string divider = new string('-', 70);
             Console.WriteLine($"{"Description",-30} {"Price",-30} {"ExpirationDate"}\n{divider}");
 
-            foreach (GroceryItem song in songs)
+            foreach (GroceryItem song in groceries)
             {
                 PrintSong(song);
-            }
-
-            TimeSpan length = new TimeSpan(0, 0, songs.TotalLength);
-            Console.WriteLine(divider);
-            Console.WriteLine($"{"Total:",-30} {string.Empty,-30} {length.Hours:D2}:{length.Minutes:D2}:{length.Seconds:D2}\n\n");
+            }         
         }
 
         public static void PrintSong(GroceryItem song)
         {
             //TimeSpan length = new TimeSpan(0, 0, song.Length);
-            Console.WriteLine($"{song.Artist,-30} {song.Title,-30} {song.ExpirationDate}");
+            Console.WriteLine($"{song.Description,-30} {song.Price,-30} {song.ExpirationDate}");
         }
     }
 }
