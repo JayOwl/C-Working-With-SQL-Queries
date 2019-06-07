@@ -13,13 +13,18 @@ namespace COMP2614Lab06
         static void Main(string[] args)
         {
             Console.Title = "COMP2614Lab03";
-
+            Console.WriteLine("Natural Order: ");
+            GroceryItemCollection groceries = GroceryItemRepository.GetAllGroceries();
+            ConsolePrinter.PrintGroceryCollection(groceries);
+           
             try
             {
-                GroceryItemCollection groceries = GroceryItemRepository.GetAllGroceries();
-                ConsolePrinter.PrintGroceryCollection(groceries);    
-                Console.ReadLine();
+                Console.WriteLine("Descending Order: ");
+                GroceryItemCollection groceries2 = GroceryItemRepository.GetAllGroceriesByPrice();
+                ConsolePrinter.PrintGroceryCollection(groceries2);
+
             }
+
 
             catch (SqlException ex)
             {
@@ -30,6 +35,7 @@ namespace COMP2614Lab06
             {
                 Console.WriteLine($"Processing Error\n\n{ex.Message}\n\n{ex.StackTrace}");
             }
+      
         }
     }
 }
