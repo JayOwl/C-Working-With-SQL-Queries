@@ -65,7 +65,7 @@ namespace COMP2614Lab06
                                 expirationDate = (DateTime)reader["ExpirationDate"];
                             }
 
-                            groceries.Add(new GroceryItem(groceryItemId, description, price, expirationDate));
+                            groceries.Add(new GroceryItem(description, price, expirationDate));
 
                             description = null;
                             price = 0;                           
@@ -124,7 +124,7 @@ namespace COMP2614Lab06
                                 expirationDate = (DateTime)reader["ExpirationDate"];
                             }
 
-                            groceries.Add(new GroceryItem(groceryItemId, description, price, expirationDate));
+                            groceries.Add(new GroceryItem(description, price, expirationDate));
                             description = null;
                             price = 0;
                         }

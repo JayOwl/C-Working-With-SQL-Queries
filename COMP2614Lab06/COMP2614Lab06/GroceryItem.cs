@@ -8,14 +8,12 @@ namespace COMP2614Lab06
 {
     class GroceryItem
     {
-        public int GroceryItemId { get; set; }
         public string Description { get; }
         public decimal Price { get; }
         public DateTime ExpirationDate { get; }
 
-        public GroceryItem(int groceryItemId, string description, decimal price, DateTime expirationDate)
-        {
-            GroceryItemId = groceryItemId;
+        public GroceryItem(string description, decimal price, DateTime expirationDate)
+        {         
             Description = description;
             Price = price;
             ExpirationDate = expirationDate;
