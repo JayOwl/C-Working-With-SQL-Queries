@@ -18,7 +18,6 @@ namespace COMP2614Lab06
                                                       TrustServerCertificate=False;
                                                       Connection Timeout=30;";
 
-
         public static GroceryItemCollection GetAllGroceries()
         {
             GroceryItemCollection groceries;
@@ -62,8 +61,7 @@ namespace COMP2614Lab06
                             }
 
                             if (!reader.IsDBNull(3))
-                            {
-                                //expirationDate = (DateTime)reader["ExpirationDate"];
+                            {                               
                                 expirationDate = (DateTime)reader["ExpirationDate"];
                             }
 
@@ -74,7 +72,6 @@ namespace COMP2614Lab06
 
                         }
                     }
-
                     return groceries;
                 }
             }
@@ -123,19 +120,15 @@ namespace COMP2614Lab06
                             }
 
                             if (!reader.IsDBNull(3))
-                            {
-                                //expirationDate = (DateTime)reader["ExpirationDate"];
+                            {                              
                                 expirationDate = (DateTime)reader["ExpirationDate"];
                             }
 
                             groceries.Add(new GroceryItem(groceryItemId, description, price, expirationDate));
-
                             description = null;
                             price = 0;
-
                         }
                     }
-
                     return groceries;
                 }
             }

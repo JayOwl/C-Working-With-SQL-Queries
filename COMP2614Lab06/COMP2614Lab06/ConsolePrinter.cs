@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 namespace COMP2614Lab06
 {
     class ConsolePrinter
-    {
-       
+    {       
         public static void PrintGroceryCollection(GroceryItemCollection groceries)
         {
-            string divider = new string('-', 70);
-           // Console.WriteLine("Natural Order:");
-            Console.WriteLine($"{"Description",-30} {"Price",-30} {"ExpirationDate"}\n{divider}");
+            string divider = new string('-', 58);
+       
+            Console.WriteLine($"{"Description",-30} {"Price",-10} {"ExpirationDate"}\n{divider}");
          
             decimal totalPrice = 0;
 
@@ -25,16 +24,16 @@ namespace COMP2614Lab06
             }
         
             Console.WriteLine(divider);
-            Console.WriteLine($"{"Total: ",-30} {totalPrice,-30} ");
-
+            Console.WriteLine($"{"Total: ",-30} {totalPrice,-10} ");
             Console.WriteLine("\n");
         }
 
         public static void PrintGroceries(GroceryItem groceryItem)
         {
-            string divider = new string('-', 70);
+            string divider = new string('-', 58);
             DateTime dateTimeExpiry = groceryItem.ExpirationDate;
             string stringDateTime;
+
             if (groceryItem.ExpirationDate == DateTime.MinValue)
             {
                 stringDateTime = "<Never>";
@@ -44,15 +43,7 @@ namespace COMP2614Lab06
                 stringDateTime = dateTimeExpiry.ToString("ddd") + " " + dateTimeExpiry.ToString("MMM dd, yyyy");
             }
 
-
-            Console.WriteLine($"{groceryItem.Description,-30} {groceryItem.Price,-30} {stringDateTime}");
-
-          
-
-
-            
-
-          
+            Console.WriteLine($"{groceryItem.Description,-30} {groceryItem.Price,-10} {stringDateTime}");          
         }
     }
 }

@@ -19,8 +19,6 @@ namespace COMP2614Lab06
             Description = description;
             Price = price;
             ExpirationDate = expirationDate;
-        }
-
-       
+        }       
     }
 }

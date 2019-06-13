@@ -7,21 +7,7 @@ using System.Threading.Tasks;
 namespace COMP2614Lab06
 {
     class GroceryItemCollection : List<GroceryItem>
-    {
-      
-        public int TotalLength
-        {
-            get
-            {
-                int total = 0;
-
-                //foreach (GroceryItem song in this)
-                //{
-                //    total += song.Length;
-                //}
-
-                return total;
-            }
-        }
+    {      
+     
     }
 }

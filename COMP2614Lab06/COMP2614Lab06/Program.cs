@@ -13,16 +13,18 @@ namespace COMP2614Lab06
         static void Main(string[] args)
         {
             Console.Title = "COMP2614Lab03";
-            Console.WriteLine("Natural Order: ");
-            GroceryItemCollection groceries = GroceryItemRepository.GetAllGroceries();
-            ConsolePrinter.PrintGroceryCollection(groceries);
            
             try
             {
+
+                Console.WriteLine("Natural Order: ");
+                GroceryItemCollection groceries = GroceryItemRepository.GetAllGroceries();
+                ConsolePrinter.PrintGroceryCollection(groceries);
+
+
                 Console.WriteLine("Descending Order: ");
                 GroceryItemCollection groceries2 = GroceryItemRepository.GetAllGroceriesByPrice();
                 ConsolePrinter.PrintGroceryCollection(groceries2);
-
             }
 
 
