@@ -40,15 +40,13 @@ namespace COMP2614Lab06
                     groceries = new GroceryItemCollection();
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        int groceryItemId;
+                    {                      
                         string description = null;
                         decimal price = 0;
                         DateTime expirationDate = DateTime.MinValue;
 
                         while (reader.Read())
-                        {
-                            groceryItemId = (int)reader["GroceryItemId"];
+                        {                       
 
                             if (!reader.IsDBNull(1))
                             {
@@ -66,7 +64,7 @@ namespace COMP2614Lab06
                             }
 
                             groceries.Add(new GroceryItem(description, price, expirationDate));
-
+                            expirationDate = DateTime.MinValue;
                             description = null;
                             price = 0;                           
 
@@ -86,7 +84,7 @@ namespace COMP2614Lab06
                 // embedded SQL
                 string query = @"SELECT GroceryItemId, Description, Price, ExpirationDate
                                  FROM GroceryItem
-                                 ORDER BY Price";
+                                 ORDER BY Price DESC";
 
                 using (SqlCommand cmd = new SqlCommand())
                 {
@@ -99,16 +97,14 @@ namespace COMP2614Lab06
                     groceries = new GroceryItemCollection();
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        int groceryItemId;
+                    {              
                         string description = null;
                         decimal price = 0;
                         DateTime expirationDate = DateTime.MinValue;
 
                         while (reader.Read())
                         {
-                            groceryItemId = (int)reader["GroceryItemId"];
-
+                            
                             if (!reader.IsDBNull(1))
                             {
                                 description = reader["Description"] as string;
@@ -121,10 +117,11 @@ namespace COMP2614Lab06
 
                             if (!reader.IsDBNull(3))
                             {                              
-                                expirationDate = (DateTime)reader["ExpirationDate"];
+                                expirationDate = (DateTime)reader["ExpirationDate"];       
                             }
 
                             groceries.Add(new GroceryItem(description, price, expirationDate));
+                            expirationDate = DateTime.MinValue;
                             description = null;
                             price = 0;
                         }
