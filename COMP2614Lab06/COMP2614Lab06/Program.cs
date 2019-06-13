@@ -16,7 +16,6 @@ namespace COMP2614Lab06
            
             try
             {
-
                 Console.WriteLine("Natural Order: ");
                 GroceryItemCollection groceries = GroceryItemRepository.GetAllGroceries();
                 ConsolePrinter.PrintGroceryCollection(groceries);
